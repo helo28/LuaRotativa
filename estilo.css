@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*IMAGEM DO FUNDO*/
+body{
+    display: flex; /**/
+    align-items: center;
+    justify-content: center;
+    width: 100vw; /*ALTURA LATERAL COMPLETA*/
+    height: 100vh; /*HORIZONTAL COMPLETA*/
+    background-image:url("img/espaco.jpg");
+    background-size: cover; /*FAZER OCUPAR TOTALMENTE A TELA*/
+    overflow: hidden; /*ESCONDE A BARRA DE ROLAGEM CASO ELA SEJA CRIADA DEVIDO AO AUMENTO DE TELA*/
+}
+
+/*PLANETA TERRA*/
+.globo{
+    position: absolute; /*FAZENDO A IMAGEM FICAR FIXA*/
+    width: 300px;
+    height: 280px;
+    border-radius: 50%;
+    background-image: url("img/terra.jpg");
+    background-size: cover; /*OCUPA TODA A TELA*/
+    /*FORMANDO A SOMBRA DA TERRA*/
+    box-shadow: 0px 0px 20px #3a86FF, -25px -25px 25px black inset, 0px 0px 20px #fff inset ; /*LADO, PARA BAIXO E O 20 É O NÍVEL DE ESPALHAMENTO. 
+    INSET MUDA O LADO DA FORMAÇÃO DA SOMBRA*/
+    /*FAZ A TERRA GIRAR CHAMA A FUNÇÃO DE BAIXO*/
+    animation: terraRotativa 20s linear infinite; /*GIRA IGUAL PARA SEMPRE*/
+    /*z-index: 1; Z INDEX SOBREPOEM A IMAGEM DE BAIXO*/
+}
+
+/*FAZENDO A IMAGEM RODAR NO TEMPO CERTO*/
+@keyframes terraRotativa {
+    to{
+        background-position: -175% /*FAZENDO NÃO OCORRER UM SALTO NA HORA DE REPETIR A IMAGEM QUANDO GIRA*/;
+    }
+}
+
+/*PARTE QUE CHAMA A ROTAÇÃO DA LUA*/
+.div{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    animation: luaRotativa 20s linear infinite;
+}
+
+.lua{
+    height: 10%;
+    width: 10%;
+    margin: 0 auto; /*CENTRALIZADO*/
+}
+
+/*TAMANHO DA IMAGEM DA LUA*/
+.lua img{
+    width: 100%;
+}
+
+/*FUNÇÃO QUE FAZ A LUA GIRAR*/
+@keyframes luaRotativa {
+    0% {transform: rotate(0deg);} /*0 GRAUS*/
+    100% {transform: rotate(360deg);}
+}
